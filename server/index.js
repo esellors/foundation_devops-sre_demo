@@ -6,10 +6,10 @@ const path = require('path');
 
 const Rollbar = require('rollbar');
 
-// const { SERVER_PORT, ROLLBAR_TOKEN } = process.env;
+const { SERVER_PORT, ROLLBAR_TOKEN } = process.env;
 
 const rollbar = new Rollbar({
-    accessToken: 'd6da82bb77774349b79b55265adb3d51',
+    accessToken: ROLLBAR_TOKEN,
     captureUncaught: true,
     captureUnhandledRejections: true
 })
@@ -53,6 +53,6 @@ app.post('/api/students', (req, res) => {
 
 rollbar.log('Server started!')
 
-const port = process.env.PORT || 5050;
+const port = process.env.PORT || SERVER_PORT;
 
 app.listen(port, () => console.log(`Server jamming on ${port}`))
