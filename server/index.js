@@ -11,7 +11,8 @@ const { SERVER_PORT, ROLLBAR_TOKEN } = process.env;
 const rollbar = new Rollbar({
     accessToken: ROLLBAR_TOKEN,
     captureUncaught: true,
-    captureUnhandledRejections: true
+    captureUnhandledRejections: true, 
+    captureIp: true
 })
 
 app.use(express.json());
